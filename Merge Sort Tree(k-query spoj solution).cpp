@@ -31,7 +31,7 @@ public:
 		build(left,s,mid);
 		build(right,mid+1,e);
 
-		int i=0,j=0,szl=seg[node*2].size();
+	    int i=0,j=0,szl=seg[node*2].size();
 	    int szr=seg[node*2+1].size();
 	    while(i<szl && j<szr){
 	        if(seg[node*2][i]<seg[node*2+1][j]) seg[node].pb(seg[node*2][i++]);
@@ -45,9 +45,9 @@ public:
 	int query(int node,int s,int e,int l,int r,int k){
 		if(r<s || e<l)return 0;
 		if(l<=s and e<=r){
-			int res=upper_bound(seg[node].begin(),seg[node].end(),k)-seg[node].begin();
-	        int x=seg[node].size()-res;
-	        return x;
+		   int res=upper_bound(seg[node].begin(),seg[node].end(),k)-seg[node].begin();
+		   int x=seg[node].size()-res;
+		   return x;	
 		}
 		int mid=(s+e)>>1;
 		int left=node*2;
